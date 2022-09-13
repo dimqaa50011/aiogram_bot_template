@@ -9,6 +9,7 @@ license = "MIT"
 python = "^3.10"
 aiogram = "^2.22.1"
 pydantic = {extras = ["dotenv"], version = "^1.10.2"}
+asyncpg = "^0.26.0"
 
 [tool.poetry.dev-dependencies]
 
