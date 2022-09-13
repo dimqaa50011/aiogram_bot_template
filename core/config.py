@@ -19,7 +19,7 @@ class DBConfig(BaseEnvFile):
     DB_HOST: str
     DB_NAME: str
 
-    SQLALCHEMY_DATABASE_URI: PostgresDsn
+    SQLALCHEMY_DATABASE_URI: PostgresDsn = None
 
     @validator("SQLALCHEMY_DATABASE_URI", pre=True)
     def assemble_db_connection(cls, v: Optional[str], values: dict[str, Any]):
@@ -36,8 +36,9 @@ class DBConfig(BaseEnvFile):
 
 
 class BotConfig(BaseEnvFile):
-    ADMINS: list[int]
+    ADMINS: str
     BOT_TOKEN: str
+    USE_REDIS: bool
 
 
 class Settings(BaseEnvFile):
