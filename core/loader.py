@@ -9,7 +9,7 @@ class Loader:
         self.__bot = Bot(token=settings.bot_config.BOT_TOKEN)
         self.__storage = self.get_fsm_storage()
         self.__dp = Dispatcher(bot=self.__bot, storage=self.__storage)
-        self.__admins = settings.bot_config.ADMINS
+        self.__admins = list(map(int, settings.bot_config.ADMINS))
 
     def get_dispatcher(self):
         return self.__dp
@@ -18,7 +18,7 @@ class Loader:
         return RedisStorage2() if settings.bot_config.USE_REDIS else MemoryStorage
 
     def get_admins(self):
-        return list(map(int, self.__admins.split(",")))
+        return self.__admins
 
 
 bot_loader = Loader()
