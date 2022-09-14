@@ -1,6 +1,7 @@
 import asyncio
-from loguru import logger
+
 from aiogram import Dispatcher
+from loguru import logger
 
 from core import bot_loader
 from tg_bot.handlers.register_all_handlers import start_register_all_handlers
@@ -29,7 +30,6 @@ async def notify_admins(dp: Dispatcher, admins: list):
             await dp.bot.send_message(chat_id=admin, text="Бот запущен")
         except Exception as ex:
             logger.error(ex)
-
 
 
 if __name__ == "__main__":

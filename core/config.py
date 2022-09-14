@@ -1,7 +1,7 @@
 from pathlib import Path
-from typing import Optional, Any
-from pydantic import BaseSettings, PostgresDsn, validator
+from typing import Any, Optional
 
+from pydantic import BaseSettings, PostgresDsn, validator
 
 BASE_DIR = Path(__file__).parent.parent
 
@@ -31,7 +31,7 @@ class DBConfig(BaseEnvFile):
             user=values.get("DB_USER"),
             password=values.get("DB_PASS"),
             host=values.get("DB_HOST"),
-            path=f'/{values.get("DB_NAME") or ""}'
+            path=f'/{values.get("DB_NAME") or ""}',
         )
 
 
@@ -47,7 +47,3 @@ class Settings(BaseEnvFile):
 
 
 settings = Settings()
-
-    
-
-

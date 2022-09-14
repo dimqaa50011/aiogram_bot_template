@@ -1,6 +1,7 @@
-from aiogram import Dispatcher, Bot
+from aiogram import Bot, Dispatcher
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.contrib.fsm_storage.redis import RedisStorage2
+
 from .config import settings
 
 
@@ -13,7 +14,7 @@ class Loader:
 
     def get_dispatcher(self):
         return self.__dp
-    
+
     def get_fsm_storage(self):
         return RedisStorage2() if settings.bot_config.USE_REDIS else MemoryStorage()
 

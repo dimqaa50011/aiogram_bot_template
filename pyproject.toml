@@ -12,6 +12,9 @@ pydantic = {extras = ["dotenv"], version = "^1.10.2"}
 asyncpg = "^0.26.0"
 aioredis = "^2.0.1"
 loguru = "^0.6.0"
+isort = "^5.10.1"
+black = "^22.8.0"
+autoflake = "^1.5.3"
 
 [tool.poetry.dev-dependencies]
 

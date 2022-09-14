@@ -1,4 +1,4 @@
-from aiogram import types, Dispatcher
+from aiogram import Dispatcher, types
 
 
 async def start_bot(message: types.Message):
@@ -6,4 +6,4 @@ async def start_bot(message: types.Message):
 
 
 def register_start_handlers(dp: Dispatcher):
-    dp.register_message_handler(callback=start_bot, commands=['start'])
+    dp.register_message_handler(callback=start_bot, commands=["start"])
