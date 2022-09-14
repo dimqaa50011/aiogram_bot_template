@@ -23,7 +23,6 @@ async def runner():
         await bot.session.close()
 
 
-
 async def notify_admins(dp: Dispatcher, admins: list):
     for admin in admins:
         try:
@@ -33,9 +32,8 @@ async def notify_admins(dp: Dispatcher, admins: list):
 
 
 
-
 if __name__ == "__main__":
     try:
         asyncio.run(runner())
     except (KeyboardInterrupt, SystemError) as ex:
-        logger.error("Bot stopped!")
+        logger.warning("Bot stopped!")
