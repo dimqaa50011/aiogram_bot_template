@@ -4,11 +4,14 @@ from aiogram import Dispatcher
 from loguru import logger
 
 from core import bot_loader
+from tg_bot.filters import register_all_filters
 from tg_bot.handlers.register_all_handlers import start_register_all_handlers
 
 
 async def runner():
     bot, dp, storage, admins = await bot_loader.get_all_attrs()
+
+    register_all_filters(dp)
 
     start_register_all_handlers(dp)
 
