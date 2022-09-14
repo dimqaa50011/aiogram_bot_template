@@ -11,6 +11,7 @@ aiogram = "^2.22.1"
 pydantic = {extras = ["dotenv"], version = "^1.10.2"}
 asyncpg = "^0.26.0"
 aioredis = "^2.0.1"
+loguru = "^0.6.0"
 
 [tool.poetry.dev-dependencies]
 
