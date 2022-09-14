@@ -11,6 +11,7 @@ class Loader:
         self.__storage = self.get_fsm_storage()
         self.__dp = Dispatcher(bot=self.__bot, storage=self.__storage)
         self.__admins = list(map(int, settings.bot_config.ADMINS.split(",")))
+        self.__bot["admins"] = self.__admins
 
     def get_dispatcher(self):
         return self.__dp
