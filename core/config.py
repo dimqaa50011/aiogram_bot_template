@@ -44,6 +44,3 @@ class BotConfig(BaseEnvFile):
 class Settings(BaseEnvFile):
     db_conf: DBConfig = DBConfig()
     bot_config: BotConfig = BotConfig()
-
-
-settings = Settings()

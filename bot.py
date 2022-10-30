@@ -10,10 +10,9 @@ from tg_bot.misc.admin import notify_admins
 
 
 async def runner():
-    bot, dp, storage, admins = await bot_loader.get_all_attrs()
-
+    bot, dp, storage, admins = bot_loader.all_conf
+    
     register_all_filters(dp)
-
     start_register_all_handlers(dp)
 
     await set_default_commands(dp)
