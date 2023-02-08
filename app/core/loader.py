@@ -6,13 +6,14 @@ from .config import Settings
 
 
 class Loader:
-    _settings = Settings()
-    
+
     def __init__(self):
+        self._settings = Settings()
+        
         self.__bot = Bot(token=self._settings.bot_config.BOT_TOKEN)
         self.__storage = self.__get_fsm_storage()
         self.__dp = Dispatcher(bot=self.__bot, storage=self.__storage)
-        self.__admins = list(map(int, self._settings.bot_config.ADMINS.split(",")))
+        self.__admins = self._settings.bot_config.ADMINS
         self.__bot["admins"] = self.__admins
 
     def __get_fsm_storage(self):
