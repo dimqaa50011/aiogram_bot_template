@@ -9,7 +9,7 @@ class Loader:
 
     def __init__(self):
         self._settings = Settings()
-        
+
         self.__bot = Bot(token=self._settings.bot_config.BOT_TOKEN)
         self.__storage = self.__get_fsm_storage()
         self.__dp = Dispatcher(bot=self.__bot, storage=self.__storage)

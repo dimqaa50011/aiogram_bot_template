@@ -16,6 +16,8 @@ isort = "^5.10.1"
 black = "^22.8.0"
 autoflake = "^1.5.3"
 environs = "^9.5.0"
+sqlalchemy = "1.4.46"
+alembic = "^1.9.3"
 
 [tool.poetry.dev-dependencies]
 
