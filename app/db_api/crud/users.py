@@ -1,6 +1,6 @@
 from loguru import logger
-from sqlalchemy.exc import IntegrityError
 from sqlalchemy import select
+from sqlalchemy.exc import IntegrityError
 
 from app.schemas.users import CreateUser
 from .base_crud import BaseCRUD

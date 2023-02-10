@@ -18,11 +18,11 @@ class Loader:
 
     def __get_fsm_storage(self):
         return RedisStorage2() if self._settings.bot_config.USE_REDIS else MemoryStorage()
-    
+
     @property
     def dispatcher(self):
         return self.__dp
-    
+
     @property
     def admins(self):
         return self.__admins
@@ -30,11 +30,11 @@ class Loader:
     @property
     def bot(self):
         return self.__bot
-    
+
     @property
     def storage(self):
         return self.__storage
-    
+
     @property
     def all_conf(self):
         return (self.__bot, self.__dp, self.__storage, self.__admins)

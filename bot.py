@@ -5,13 +5,13 @@ from loguru import logger
 from app.core import bot_loader
 from app.tg_bot.filters import register_all_filters
 from app.tg_bot.handlers.register_all_handlers import start_register_all_handlers
-from app.tg_bot.misc.bot_commands import set_default_commands
 from app.tg_bot.misc.admin import notify_admins
+from app.tg_bot.misc.bot_commands import set_default_commands
 
 
 async def runner():
     bot, dp, storage, admins = bot_loader.all_conf
-    
+
     register_all_filters(dp)
     start_register_all_handlers(dp)
 

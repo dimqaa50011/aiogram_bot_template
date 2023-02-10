@@ -1,6 +1,4 @@
 from aiogram import Dispatcher, types
-from asyncpg.exceptions import UniqueViolationError
-from loguru import logger
 
 from app.core.database import async_session
 from app.db_api.crud.users import UserDAL
