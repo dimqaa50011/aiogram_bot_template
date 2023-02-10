@@ -1,5 +1,6 @@
 from loguru import logger
 from sqlalchemy.exc import IntegrityError
+from sqlalchemy import select
 
 from app.schemas.users import CreateUser
 from .base_crud import BaseCRUD
@@ -20,3 +21,7 @@ class UserDAL(BaseCRUD):
             await self.session.commit()
         except IntegrityError as ex:
             logger.warning(ex)
+
+    async def get_user(self, user_id: int):
+        stmt = select(User).where(User.user_id == user_id)
+        return await self.session.scalar(stmt)
