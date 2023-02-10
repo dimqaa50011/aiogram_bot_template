@@ -7,8 +7,8 @@ class User(Base):
     __tablename__ = "user"
 
     id = Column(Integer, primary_key=True)
-    user_id = Column(BigInteger, nullable=False)
+    user_id = Column(BigInteger, nullable=False, unique=True)
     first_name = Column(String(128))
     last_name = Column(String(128))
-    username = Column(String(256))
+    username = Column(String(256), unique=True)
     is_admin = Column(Boolean, nullable=False, default=False)
