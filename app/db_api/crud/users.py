@@ -2,18 +2,10 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.schemas.users import CreateUser
 from ..models.users import User
+from .base_crud import BaseCRUD
 
 
-class UserDAL:
-    def __init__(self, session: AsyncSession) -> None:
-        self.session = session
-    
-    async def __aenter__(self):
-        await self.session.begin()
-        return self
-    
-    async def __aexit__(self, exc_type, exc, td):
-        await self.session.close()
+class UserDAL(BaseCRUD):
     
     async def create_user(self, new_user: CreateUser):
         user = User(
@@ -24,6 +16,5 @@ class UserDAL:
             is_admin=new_user.is_admin
         )
         self.session.add(user)
-        print()
         await self.session.commit()
         return user
