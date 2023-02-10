@@ -1,8 +1,7 @@
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Tuple
-from dataclasses import dataclass
 
-from pydantic import BaseSettings, PostgresDsn, validator
 from environs import Env
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -18,6 +17,11 @@ class DBConfig:
     POSTGRES_HOST: str = env.str("POSTGRES_HOST")
     POSTGRES_DB: str = env.str("POSTGRES_DB")
     POSTGRES_PORT: str = env.str("POSTGRES_PORT")
+    DB_SCHEMA: str = "postgresql+asyncpg"
+
+    SQLALCHEMY_DATABASE_URI: str = f"{DB_SCHEMA}://{POSTGRES_USER}:{POSTGRES_PASSWORD}" \
+                                   f"@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
+
 
 @dataclass
 class BotConfig:

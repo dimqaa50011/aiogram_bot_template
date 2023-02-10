@@ -4,4 +4,4 @@ from .loader import Loader
 settings = Settings()
 bot_loader = Loader()
 
-# __all__ = ["settings", "bot_loader"]
+__all__ = ("settings", "bot_loader")
